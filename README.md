@@ -8,10 +8,12 @@ This repo now includes:
 
 - `support/index.html`: user-facing support page with a Formspree contact form
 
-### Setup
+### Configuration
 
-1. Create a form in Formspree.
-2. Copy your Formspree endpoint (looks like `https://formspree.io/f/xxxx...`).
-3. Replace the placeholder action in `support/index.html`:
-   - `action="https://formspree.io/f/REPLACE_WITH_YOUR_FORMSPREE_ID"`
-4. Deploy to Cloudflare Pages.
+- Public contact email: `info@buildwithzana.com`.
+- Support form endpoint: `https://formspree.io/f/xgolryej`.
+- In the Formspree dashboard, set the notification recipient for form `xgolryej` to
+  `info@buildwithzana.com` and complete any email verification Formspree requests.
+  The recipient is configured in Formspree, not in the HTML form; changing the
+  public contact links does not change submission delivery.
+- Deploy the site to Cloudflare Pages after changing the HTML.

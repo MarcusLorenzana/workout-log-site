@@ -1,0 +1,24 @@
+Project-specific Cline rules
+
+- Never run pager-based or interactive commands that can block waiting for user input.
+- Always prefer non-interactive command variants and flags.
+- For git commands, always disable pagers explicitly when relevant, for example:
+  - `git --no-pager diff ...`
+  - `git --no-pager log ...`
+  - `git --no-pager show ...`
+- Do not run commands that open editors, prompts, shells, watch modes, or REPLs.
+  Examples to avoid include:
+  - `less`, `more`, `vim`, `vi`, `nano`
+  - `git commit` without a `-m` message
+  - `git rebase -i`
+  - `npm run ... -- --watch`
+  - `top`, `htop`, `python`, `node` in interactive mode
+- When a command may prompt for confirmation, only run it with explicit non-interactive flags such as:
+  - `--non-interactive`
+  - `-y` / `--yes`
+  - `--force` only when clearly appropriate and safe
+- Prefer targeted read/search tools over shell commands for inspecting files.
+- Keep shell output bounded and reviewable:
+  - use `head`, `tail`, `sed -n`, `grep`, or specific file paths
+  - avoid commands that stream unbounded output
+- If a task would normally require interactive input, do not run the command. Ask for clarification or choose a safe non-interactive alternative instead.
